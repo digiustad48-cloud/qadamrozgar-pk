@@ -1,0 +1,21 @@
+name: QADAMROZGAR Auto Update
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+jobs:
+  update-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: pip install -r requirements.txt
+      - run: python agent_main.py --once
+      - run: |
+          git config user.name "qadam-bot"
+          git config user.email "bot@qadamrozgar.pk"
+          git add jobs_db.json
+          git commit -m "fresh jobs" || echo "no change"
+          git push
