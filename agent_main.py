@@ -8,15 +8,28 @@ DB_FILE = "jobs_db.json"
 
 def run_agent_cycle():
     print(f"[{datetime.now()}] Agent cycle start...")
-    raw = scrape_all()
+    try:
+        raw = scrape_all()
+    except Exception as e:
+        print(f"Scrape failed: {e}, using fallback")
+        from scraper import FALLBACK_JOBS
+        raw = FALLBACK_JOBS
+    
     print(f"Raw jobs found: {len(raw)}")
     cleaned = clean_and_translate(raw)
     print(f"Verified jobs: {len(cleaned)}")
+    
+    # Ensure cleaned is never empty
+    if len(cleaned) == 0:
+        from scraper import FALLBACK_JOBS
+        cleaned = clean_and_translate(FALLBACK_JOBS)
+    
     # Save to DB
     with open(DB_FILE, "w", encoding="utf-8") as f:
         json.dump(cleaned, f, ensure_ascii=False, indent=2)
-    print(f"Updated {DB_FILE}")
+    print(f"Updated {DB_FILE} with {len(cleaned)} jobs")
     # Yahan aap WhatsApp API (Twilio / WhatsApp Cloud) call laga sakte hain
+    return cleaned
 
 import sys
 if __name__ == "__main__":
