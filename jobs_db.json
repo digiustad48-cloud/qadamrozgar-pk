@@ -1,1 +1,67 @@
-[]
+[
+  {
+    "source": "njp.gov.pk",
+    "title": "Assistant Director - Ministry of IT & Telecom (BPS-17)",
+    "title_ur": "Assistant Director - Ministry of IT & Telecom (BPS-17)",
+    "url": "https://njp.gov.pk",
+    "location": "Islamabad",
+    "company": "Federal Government",
+    "category": "Private",
+    "description": "Govt of Pakistan Ministry of IT hiring Assistant Director. Apply via NJP.",
+    "verified": true,
+    "scraped_at": "2026-09-12T14:53:39.710776",
+    "posted_ago": "2 min pehle"
+  },
+  {
+    "source": "fpsc.gov.pk",
+    "title": "FPSC Jobs - Assistant, Inspector, Lecturer (BPS-16 to 18)",
+    "title_ur": "FPSC Jobs - Assistant, Inspector, Lecturer (BPS-16 to 18)",
+    "url": "https://fpsc.gov.pk",
+    "location": "All Pakistan",
+    "company": "FPSC",
+    "category": "Govt",
+    "description": "Federal Public Service Commission latest consolidated advertisement.",
+    "verified": true,
+    "scraped_at": "2026-09-12T14:53:39.710785",
+    "posted_ago": "2 min pehle"
+  },
+  {
+    "source": "ppsc.gop.pk",
+    "title": "PPSC - Punjab Police, Education Department Jobs 2026",
+    "title_ur": "PPSC - Punjab Police, Education Department Jobs 2026",
+    "url": "https://ppsc.gop.pk",
+    "location": "Lahore",
+    "company": "Punjab Govt",
+    "category": "Private",
+    "description": "Punjab Public Service Commission jobs in Education and Police.",
+    "verified": true,
+    "scraped_at": "2026-09-12T14:53:39.710787",
+    "posted_ago": "2 min pehle"
+  },
+  {
+    "source": "mustakbil.com",
+    "title": "Sales Officer - Karachi - FMCG Company",
+    "title_ur": "Sales Officer - Karachi - FMCG Company",
+    "url": "https://mustakbil.com",
+    "location": "Karachi",
+    "company": "Private Company",
+    "category": "Private",
+    "description": "FMCG Sales Officer required in Karachi, 1-2 years experience.",
+    "verified": true,
+    "scraped_at": "2026-09-12T14:53:39.710789",
+    "posted_ago": "2 min pehle"
+  },
+  {
+    "source": "rozee.pk",
+    "title": "Customer Support Representative - Remote / Karachi",
+    "title_ur": "Customer Support Representative - Remote / Karachi",
+    "url": "https://rozee.pk",
+    "location": "Karachi",
+    "company": "Tech Solutions",
+    "category": "Private",
+    "description": "CSR required, fluent English, night shift allowance.",
+    "verified": true,
+    "scraped_at": "2026-09-12T14:53:39.710790",
+    "posted_ago": "2 min pehle"
+  }
+]
