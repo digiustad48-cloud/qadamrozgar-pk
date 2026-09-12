@@ -1,0 +1,31 @@
+name: QadamRozgar Agent
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # har 30 min
+  workflow_dispatch:  # manual button
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Run agent once
+        run: python agent_main.py --once
+        
+      - name: Commit jobs_db.json
+        run: |
+          git config --global user.name 'QadamRozgar Bot'
+          git config --global user.email 'bot@qadamrozgar.com'
+          git add jobs_db.json
+          git diff --staged --quiet || git commit -m "auto: update jobs"
+          git push
