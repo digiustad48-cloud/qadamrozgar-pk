@@ -1,23 +1,46 @@
 name: QadamRozgar Agent
+
 on:
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:
+
 permissions:
   contents: write
+
+concurrency:
+  group: qadamrozgar-jobs-update
+  cancel-in-progress: false
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
         with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: python agent_main.py --once
-      - run: |
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install requests beautifulsoup4 lxml
+        
+      - name: Run agent once
+        run: python agent_main.py --once
+        
+      - name: Commit jobs_db.json safely
+        run: |
           git config --global user.name 'QadamRozgar Bot'
           git config --global user.email 'bot@qadamrozgar.com'
-          git add jobs_db.json jobs_db_1000.json
-          git diff --staged --quiet || git commit -m "final: 1000 jobs Govt Pvt Gulf secured"
-          git push
+          # Fix for exit code 128 - pull with rebase first
+          git pull --rebase origin main || echo "Rebase done or no remote changes"
+          git add jobs_db.json
+          git add jobs_db_1000.json || true
+          git diff --staged --quiet && echo "No changes to commit" || git commit -m "auto: update 1000 jobs Govt Pvt Gulf - $(date)"
+          git push || (git pull --rebase origin main && git push)
