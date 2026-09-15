@@ -2,53 +2,38 @@ name: Real-Time Jobs Scraper - QadamRozgar
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Har 15 min - different site rotation
-  workflow_dispatch:  # Manual trigger
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 jobs:
   scrape-real-jobs:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
-          
-      - name: Install dependencies
-        run: npm install axios cheerio
-        
-      - name: Scrape Real Jobs - Rotation
+          python-version: '3.11'
+
+      - name: Install Python deps
         run: |
-          HOUR=$(date +%H)
-          MINUTE=$(date +%M)
-          SOURCE_INDEX=$(( (HOUR * 4 + MINUTE / 15) % 4 ))
-          echo "Current time: $(date) - Source index: $SOURCE_INDEX"
-          
-          if [ $SOURCE_INDEX -eq 0 ]; then
-            echo "Scraping Indeed PK..."
-            node scripts/scrape-indeed.js
-          elif [ $SOURCE_INDEX -eq 1 ]; then
-            echo "Scraping Ndeed.pk..."
-            node scripts/scrape-ndeed.js
-          elif [ $SOURCE_INDEX -eq 2 ]; then
-            echo "Scraping BrightSpyre..."
-            node scripts/scrape-brightspyre.js
-          else
-            echo "Scraping Govt portals..."
-            node scripts/scrape-govt.js
-          fi
-          
-      - name: Validate Real Jobs Only
+          pip install requests
+
+      - name: Run Multi-Source Real-Time Scraper (Python)
         run: |
-          node scripts/validate-real.js
-          
-      - name: Commit and Push jobs_db.json
+          python naukrinow-pk-agent/scraper.py
+          echo "Scraper finished - checking jobs_db.json"
+          ls -lh jobs_db.json naukrinow-pk-agent/jobs_db.json || true
+          cat jobs_db.json | head -20 || true
+
+      - name: Commit and Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Real-Time Scraper"
-          git add jobs_db.json govt-real-jobs.json || true
-          git diff --staged --quiet || git commit -m "Real-time jobs update - $(date) - Source rotation"
+          git add jobs_db.json naukrinow-pk-agent/jobs_db.json rotation_index.txt || true
+          git diff --staged --quiet || git commit -m "Real-time jobs update - $(date -u) - auto"
           git push
