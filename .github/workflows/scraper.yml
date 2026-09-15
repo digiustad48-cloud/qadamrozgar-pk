@@ -1,28 +1,54 @@
-name: Auto Update Jobs
+name: Real-Time Jobs Scraper - QadamRozgar
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
+    - cron: '*/15 * * * *'  # Har 15 min - different site rotation
+  workflow_dispatch:  # Manual trigger
 
 jobs:
-  update:
+  scrape-real-jobs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.9'
-      - run: pip install requests beautifulsoup4 lxml
-      - run: |
-          cd naukrinow-pk-agent || true
-          python scraper.py || python ../naukrinow-pk-agent/scraper.py
-      - run: |
-          if [ -f "naukrinow-pk-agent/jobs_db.json" ]; then cp naukrinow-pk-agent/jobs_db.json jobs_db.json; fi
-          if [ -f "jobs_db.json" ]; then cp jobs_db.json naukrinow-pk-agent/jobs_db.json || true; fi
-          python3 -c "import json; print(f'Total jobs: {len(json.load(open(\"jobs_db.json\")))}')"
-      - run: |
-          git config --global user.name 'Bot'
-          git config --global user.email 'bot@qadamrozgar.com'
-          git add jobs_db.json naukrinow-pk-agent/jobs_db.json || git add jobs_db.json
-          git diff --staged --quiet || (git commit -m "Update jobs - $(date)" && git push)
+          node-version: '20'
+          
+      - name: Install dependencies
+        run: npm install axios cheerio
+        
+      - name: Scrape Real Jobs - Rotation
+        run: |
+          HOUR=$(date +%H)
+          MINUTE=$(date +%M)
+          SOURCE_INDEX=$(( (HOUR * 4 + MINUTE / 15) % 4 ))
+          echo "Current time: $(date) - Source index: $SOURCE_INDEX"
+          
+          if [ $SOURCE_INDEX -eq 0 ]; then
+            echo "Scraping Indeed PK..."
+            node scripts/scrape-indeed.js
+          elif [ $SOURCE_INDEX -eq 1 ]; then
+            echo "Scraping Ndeed.pk..."
+            node scripts/scrape-ndeed.js
+          elif [ $SOURCE_INDEX -eq 2 ]; then
+            echo "Scraping BrightSpyre..."
+            node scripts/scrape-brightspyre.js
+          else
+            echo "Scraping Govt portals..."
+            node scripts/scrape-govt.js
+          fi
+          
+      - name: Validate Real Jobs Only
+        run: |
+          node scripts/validate-real.js
+          
+      - name: Commit and Push jobs_db.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Real-Time Scraper"
+          git add jobs_db.json govt-real-jobs.json || true
+          git diff --staged --quiet || git commit -m "Real-time jobs update - $(date) - Source rotation"
+          git push
