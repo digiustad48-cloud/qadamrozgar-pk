@@ -20,7 +20,7 @@ jobs:
       - run: |
           if [ -f "naukrinow-pk-agent/jobs_db.json" ]; then cp naukrinow-pk-agent/jobs_db.json jobs_db.json; fi
           if [ -f "jobs_db.json" ]; then cp jobs_db.json naukrinow-pk-agent/jobs_db.json || true; fi
-          python3 -c "import json; data=json.load(open('jobs_db.json')); print(f'Total jobs: {len(data)}')"
+          python3 -c "import json; print(f'Total jobs: {len(json.load(open(\"jobs_db.json\")))}')"
       - run: |
           git config --global user.name 'Bot'
           git config --global user.email 'bot@qadamrozgar.com'
