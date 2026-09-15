@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow private folders
+Disallow: /naukrinow-pk-agent/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://qadamrozgar.com/sitemap.xml
+
+# QADAMROZGAR.COM - Verified Jobs Portal
