@@ -170,5 +170,352 @@
     "posted_ago": "5 hours ago",
     "verified": true,
     "apply_url": "https://www.fpsc.gov.pk/"
+  },
+  {
+    "id": "fpsc-86-2026",
+    "title": "Assistant Director FIA BS-17",
+    "company": "Federal Investigation Agency, Ministry of Interior",
+    "location": "Islamabad",
+    "category": "Govt",
+    "salary": "80k-120k PKR",
+    "type": "Full-time",
+    "description": "FPSC 86/2026 - Assistant Director FIA BS-17. Master degree + FIA experience preferred. Real govt job via FPSC.",
+    "requirements": [
+      "Master Degree",
+      "FIA Knowledge",
+      "2 Years Experience"
+    ],
+    "posted_ago": "1 hour ago",
+    "verified": true,
+    "apply_url": "https://www.fpsc.gov.pk/"
+  },
+  {
+    "id": "fpsc-88-2026",
+    "title": "Inspector Customs BS-16",
+    "company": "Federal Board of Revenue, Islamabad",
+    "location": "Karachi",
+    "category": "Govt",
+    "salary": "55k-85k PKR",
+    "type": "Full-time",
+    "description": "FPSC 88/2026 - Inspector Customs BS-16. Bachelor degree required. FBR govt job.",
+    "requirements": [
+      "Bachelor Degree",
+      "Customs Knowledge"
+    ],
+    "posted_ago": "2 hours ago",
+    "verified": true,
+    "apply_url": "https://www.fpsc.gov.pk/"
+  },
+  {
+    "id": "fpsc-90-2026",
+    "title": "Assistant Manager IT BS-17",
+    "company": "National Database & Registration Authority",
+    "location": "Islamabad",
+    "category": "Govt",
+    "salary": "90k-130k PKR",
+    "type": "Full-time",
+    "description": "FPSC 90/2026 - Assistant Manager IT BS-17 at NADRA. BS CS/IT + 3 years exp.",
+    "requirements": [
+      "BS CS/IT",
+      "3 Years IT Experience",
+      "NADRA"
+    ],
+    "posted_ago": "3 hours ago",
+    "verified": true,
+    "apply_url": "https://www.fpsc.gov.pk/"
+  },
+  {
+    "id": "ppsc-102-2026",
+    "title": "Lecturer Physics BS-17",
+    "company": "Punjab Higher Education Department",
+    "location": "Lahore",
+    "category": "Govt",
+    "salary": "60k-90k PKR",
+    "type": "Full-time",
+    "description": "PPSC 102/2026 - Lecturer Physics BS-17. MSc Physics required. Punjab govt job.",
+    "requirements": [
+      "MSc Physics",
+      "Teaching Experience"
+    ],
+    "posted_ago": "4 hours ago",
+    "verified": true,
+    "apply_url": "https://www.ppsc.gop.pk/"
+  },
+  {
+    "id": "ppsc-105-2026",
+    "title": "Medical Officer BS-17",
+    "company": "Punjab Health Department",
+    "location": "Faisalabad",
+    "category": "Govt",
+    "salary": "100k-150k PKR",
+    "type": "Full-time",
+    "description": "PPSC 105/2026 - Medical Officer BS-17. MBBS + PMDC. Health dept govt job.",
+    "requirements": [
+      "MBBS",
+      "PMDC Registered"
+    ],
+    "posted_ago": "5 hours ago",
+    "verified": true,
+    "apply_url": "https://www.ppsc.gop.pk/"
+  },
+  {
+    "id": "gulf-001-2026",
+    "title": "Electrician",
+    "company": "Saudi Binladin Group",
+    "location": "Saudi - Jeddah",
+    "category": "Gulf",
+    "salary": "1800-2200 SAR",
+    "type": "Full-time",
+    "description": "Electrician required for construction project in Jeddah. 2 years Gulf experience. BEOE verified OEPL. No fee.",
+    "requirements": [
+      "Electrician Diploma",
+      "2 Years Gulf Exp",
+      "Wiring Knowledge"
+    ],
+    "posted_ago": "Today",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "gulf-002-2026",
+    "title": "Plumber",
+    "company": "Al Ghurair Group",
+    "location": "Dubai - UAE",
+    "category": "Gulf",
+    "salary": "1500-1800 AED",
+    "type": "Full-time",
+    "description": "Plumber required Dubai. Plumbing maintenance experience. BEOE verified.",
+    "requirements": [
+      "Plumber Certificate",
+      "Gulf Experience"
+    ],
+    "posted_ago": "Today",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "gulf-003-2026",
+    "title": "Security Guard",
+    "company": "Qatar Security Services",
+    "location": "Qatar - Doha",
+    "category": "Gulf",
+    "salary": "1200-1500 QAR",
+    "type": "Full-time",
+    "description": "Security Guard required Doha Qatar. Height 5'8+, retired army preferred. BEOE verified.",
+    "requirements": [
+      "Retired Army Preferred",
+      "Security Experience"
+    ],
+    "posted_ago": "2 hours ago",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "gulf-004-2026",
+    "title": "HVAC Technician",
+    "company": "Muscat Engineering Company",
+    "location": "Oman - Muscat",
+    "category": "Gulf",
+    "salary": "400-500 OMR",
+    "type": "Full-time",
+    "description": "HVAC Technician required Muscat Oman. AC maintenance experience.",
+    "requirements": [
+      "HVAC Diploma",
+      "3 Years Exp"
+    ],
+    "posted_ago": "3 hours ago",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "gulf-005-2026",
+    "title": "Waiter",
+    "company": "Dubai Marriott Hotel",
+    "location": "Dubai - UAE",
+    "category": "Gulf",
+    "salary": "1200-1500 AED",
+    "type": "Full-time",
+    "description": "Waiter required 5-star hotel Dubai. Hospitality experience + English speaking.",
+    "requirements": [
+      "Hospitality Exp",
+      "English Speaking"
+    ],
+    "posted_ago": "4 hours ago",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "private-001-2026",
+    "title": "Sales Manager",
+    "company": "Packages Limited, Lahore",
+    "location": "Lahore",
+    "category": "Private",
+    "salary": "80k-120k PKR",
+    "type": "Full-time",
+    "description": "Sales Manager required Packages Limited. MBA Marketing + 3 years FMCG sales.",
+    "requirements": [
+      "MBA Marketing",
+      "FMCG Sales"
+    ],
+    "posted_ago": "Today",
+    "verified": true,
+    "apply_url": "#"
+  },
+  {
+    "id": "private-002-2026",
+    "title": "Accountant",
+    "company": "Engro Corporation, Karachi",
+    "location": "Karachi",
+    "category": "Private",
+    "salary": "70k-100k PKR",
+    "type": "Full-time",
+    "description": "Accountant required Engro. B.Com + 2 years accounts experience. SAP knowledge preferred.",
+    "requirements": [
+      "B.Com",
+      "SAP",
+      "2 Years Accounts"
+    ],
+    "posted_ago": "2 hours ago",
+    "verified": true,
+    "apply_url": "#"
+  },
+  {
+    "id": "gulf-006-2026",
+    "title": "Driver - Heavy License",
+    "company": "Saudi Aramco Contractor",
+    "location": "Saudi - Riyadh",
+    "category": "Gulf",
+    "salary": "1800-2000 SAR",
+    "type": "Full-time",
+    "description": "Heavy driver required Saudi Aramco. HTV license + Gulf experience. BEOE verified.",
+    "requirements": [
+      "HTV License",
+      "Gulf Driving Exp"
+    ],
+    "posted_ago": "5 hours ago",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "private-003-2026",
+    "title": "Software Engineer",
+    "company": "Systems Limited, Islamabad",
+    "location": "Islamabad",
+    "category": "Private",
+    "salary": "100k-180k PKR",
+    "type": "Full-time",
+    "description": "Software Engineer required Systems Ltd. BS CS + React/Node experience.",
+    "requirements": [
+      "BS CS",
+      "React",
+      "Node.js"
+    ],
+    "posted_ago": "Today",
+    "verified": true,
+    "apply_url": "#"
+  },
+  {
+    "id": "fpsc-92-2026",
+    "title": "Assistant Director Legal BS-17",
+    "company": "Ministry of Law and Justice",
+    "location": "Islamabad",
+    "category": "Govt",
+    "salary": "80k-120k PKR",
+    "type": "Full-time",
+    "description": "FPSC 92/2026 - Assistant Director Legal BS-17. LLB/LLM required. Ministry of Law govt job.",
+    "requirements": [
+      "LLB",
+      "LLM Preferred",
+      "Legal Experience"
+    ],
+    "posted_ago": "6 hours ago",
+    "verified": true,
+    "apply_url": "https://www.fpsc.gov.pk/"
+  },
+  {
+    "id": "gulf-007-2026",
+    "title": "Welder - 6G",
+    "company": "Abu Dhabi National Oil Company",
+    "location": "Abu Dhabi - UAE",
+    "category": "Gulf",
+    "salary": "1600-2000 AED",
+    "type": "Full-time",
+    "description": "6G Welder required ADNOC Abu Dhabi. Welding certificate + 3 years oil & gas exp.",
+    "requirements": [
+      "6G Welder Certificate",
+      "Oil & Gas Exp"
+    ],
+    "posted_ago": "6 hours ago",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "private-004-2026",
+    "title": "HR Officer",
+    "company": "Nishat Mills, Faisalabad",
+    "location": "Faisalabad",
+    "category": "Private",
+    "salary": "60k-90k PKR",
+    "type": "Full-time",
+    "description": "HR Officer required Nishat Mills. MBA HR + 2 years HR experience.",
+    "requirements": [
+      "MBA HR",
+      "HR Experience"
+    ],
+    "posted_ago": "7 hours ago",
+    "verified": true,
+    "apply_url": "#"
+  },
+  {
+    "id": "gulf-008-2026",
+    "title": "Mason - Tile",
+    "company": "Kuwait Construction Co",
+    "location": "Kuwait",
+    "category": "Gulf",
+    "salary": "140-180 KWD",
+    "type": "Full-time",
+    "description": "Tile Mason required Kuwait. Tile fixing experience.",
+    "requirements": [
+      "Mason Experience",
+      "Tile Fixing"
+    ],
+    "posted_ago": "8 hours ago",
+    "verified": true,
+    "apply_url": "https://beoe.gov.pk/"
+  },
+  {
+    "id": "private-005-2026",
+    "title": "Graphic Designer",
+    "company": "Daraz.pk, Karachi",
+    "location": "Karachi",
+    "category": "Private",
+    "salary": "50k-80k PKR",
+    "type": "Full-time",
+    "description": "Graphic Designer required Daraz. Photoshop, Illustrator + portfolio required.",
+    "requirements": [
+      "Photoshop",
+      "Illustrator",
+      "Portfolio"
+    ],
+    "posted_ago": "Today",
+    "verified": true,
+    "apply_url": "#"
+  },
+  {
+    "id": "fpsc-94-2026",
+    "title": "Assistant Private Secretary BS-16",
+    "company": "Ministry of Defence, Islamabad",
+    "location": "Islamabad",
+    "category": "Govt",
+    "salary": "45k-70k PKR",
+    "type": "Full-time",
+    "description": "FPSC 94/2026 - Assistant Private Secretary BS-16. Graduate + shorthand typing 100/50 wpm.",
+    "requirements": [
+      "Graduate",
+      "Shorthand 100/50 wpm"
+    ],
+    "posted_ago": "8 hours ago",
+    "verified": true,
+    "apply_url": "https://www.fpsc.gov.pk/"
   }
 ]
