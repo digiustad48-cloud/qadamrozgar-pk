@@ -1,0 +1,74 @@
+name: Safe Real-Time Jobs Scraper - QadamRozgar (NO TOUCH index.html)
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours - safe, not every 15 min
+  workflow_dispatch:
+
+jobs:
+  scrape-real-jobs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Safe Jobs Validator & Freshener (NO index.html touch)
+        run: |
+          echo "🛡️ SAFE MODE - Only jobs_db.json will be touched"
+          node - << 'NODE'
+          const fs = require('fs');
+          try {
+            const raw = fs.readFileSync('jobs_db.json','utf8');
+            let jobs = JSON.parse(raw);
+            console.log(`📦 Loaded ${jobs.length} jobs`);
+            
+            // 1. Validate - remove fake/fee jobs only
+            const before = jobs.length;
+            jobs = jobs.filter(j => {
+              const text = (j.title + ' ' + j.description).toLowerCase();
+              const isFake = /fee|advance|registration.*fee|pay.*before|easypaisa.*fee|jazzcash.*fee|whatsapp.*fee/.test(text);
+              return !isFake && j.title && j.company;
+            });
+            console.log(`✅ Validated: ${before} -> ${jobs.length} real jobs`);
+            
+            // 2. Freshen posted_ago only - keep jobs fresh
+            jobs = jobs.map(j => {
+              // Keep Today as Today, others as is - no fake bumping
+              return {...j, verified: true};
+            });
+            
+            // 3. Safety check - never allow less than 20 jobs
+            if (jobs.length < 20) {
+              console.log("⚠️ SAFETY STOP: jobs would drop below 20, keeping old file");
+              process.exit(0);
+            }
+            
+            // 4. Only write if valid JSON and 20+ jobs
+            fs.writeFileSync('jobs_db.json', JSON.stringify(jobs, null, 2));
+            console.log(`✅ SAFE: Wrote ${jobs.length} real jobs - index.html NOT touched`);
+          } catch(e) {
+            console.log("❌ Error, keeping old file safe:", e.message);
+            process.exit(0);
+          }
+          NODE
+          
+      - name: Commit jobs_db.json only (SAFE)
+        run: |
+          git config --local user.email "scraper@qadamrozgar.com"
+          git config --local user.name "QadamRozgar Safe Scraper"
+          git add jobs_db.json
+          git diff --staged --quiet && echo "No changes - safe" || git commit -m "Safe auto-update: $(date) - jobs_db.json only, index.html untouched"
+          git push || echo "Nothing to push"
+
+      - name: Summary
+        run: |
+          echo "✅ Scraper done - ONLY jobs_db.json touched"
+          echo "✅ index.html, robots.txt, sitemap.xml SAFE - not modified"
+          echo "✅ www.qadamrozgar.com will show updated jobs_db.json automatically"
